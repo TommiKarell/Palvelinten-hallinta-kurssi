@@ -28,3 +28,9 @@ c) Pubkey (Salasanaton kirjautuminen avaimella)
 
  <img width="1004" height="357" alt="image" src="https://github.com/user-attachments/assets/e3102e82-83b8-4cc3-84bd-bdaab2f378d1" />
  
+--- 
+
+d9 Hei Ansible (ensimmäinen Ansible-ajo)
+* Asensin tarvittavat työkalut antamalla komennot 'sudo apt-get update' ja 'sudo apt-get install ansible micro bash-compilation tree'. Loin projektille oman kansion ja sitten siirryttiin sinne. Loin inventaariotiedoston 'hosts.ini', johon lisäsin kohdekoneeksi 'localhost'. Tein ensimmäisen testin komennolla 'ansible all -a 'uptime' -i hosts.ini'.
+
+* Huomasin
