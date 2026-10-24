@@ -21,3 +21,10 @@ b) SSH-demoni
 
 <img width="1004" height="521" alt="image" src="https://github.com/user-attachments/assets/1df72f09-b2f7-4828-9001-5f5271ba1cfc" />
 
+---
+
+c) Pubkey (Salasanaton kirjautuminen avaimella)
+* Automatisoin SSH-kirjautumisen julkisella avaimella. Loin aluksi uuden avainparin komennolla 'ssh-keygen'. Sen jälkeen kopioin julkisen avaimen paikalliselle koneelle komennolla 'ssh-copy-id localhost'. Testasin sen toimivuutta ajamalla uudelleen komennon 'ssh localhost'. Nyt kirjautui sisään ilman salasana kyselyä.
+
+ <img width="1004" height="357" alt="image" src="https://github.com/user-attachments/assets/e3102e82-83b8-4cc3-84bd-bdaab2f378d1" />
+ 
