@@ -18,4 +18,5 @@ a) Paikallinen asennus
 
 b) SSH-demoni
 * Varmistin, että ssh-demoni toimii virtuaalikoneessa. Ajoin komennon 'ssh localhost', järjestelmä varoitti aluksi isäntäkoneen sormenjäljestä, siihen riitti hyväksyntä tekstillä 'yes'. Annoin tunnukseni salasanan, minkä jälkeen kirjauduin onnistuneesti sisään koneelle. Tarkistin istunnon komennolla 'w', joka näytti kirjautuneet käyttäjät ja yhteydet.
-  <img width="358" height="186" alt="image" src="https://github.com/user-attachments/assets/7f5b8256-f1f1-48ae-9e1a-6841430889d1" />
+
+<img width="358" height="186" alt="image" src="https://github.com/user-attachments/assets/134e7d3d-1dcf-4d97-9f47-a45b69742cfc" />
