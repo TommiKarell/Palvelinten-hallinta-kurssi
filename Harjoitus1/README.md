@@ -41,3 +41,11 @@ d9 Hei Ansible (ensimmäinen Ansible-ajo)
 
 * <img width="1004" height="202" alt="image" src="https://github.com/user-attachments/assets/9de8662b-fb84-4745-8060-81835d5c7851" />
 
+Lopuksi ajoin playbookin komennolla 'ansible-playbook site.yml'. Ansible suoritti ajon läpi onnistuneesti ja tulosteeksi palautui 'changed=1'- Varmistin tiedoston olemassaolon ja sisällön ajamalla komennon 'ssh localhost'cat/tmp/hello-ansible', joka palautti odotetusti merkkijonon: *See you at TeroKarvinen.com!*.
+
+<img width="1004" height="422" alt="image" src="https://github.com/user-attachments/assets/6b5c632b-47ca-4822-9319-c0aab4749a68" />
+
+Lähteet
+* Karvinen, Tero 2026: SSH public key - Login without password, luettavissa: https://terokarvinen.com/ssh-public-key-login-without-password/
+* Karvinen, Tero 2026: Hello Ansible, luettavissa: https://terokarvinen.com/hello-ansible/
+* Tekoäly (Google Gemini): Käytetty apuna tekstin jäsentelyyn, tarkistukseen ja kysytty neuvoa miten Markdownia käytetään askel askeleelta. 
