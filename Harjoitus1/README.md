@@ -11,10 +11,10 @@ x) Lue ja tiivistä
 * Keskeisiä osia ovat inventaariotiedosto 'hosts.ini', konfiguraatiotiedosto 'ansible.cfg', järjestelytiedosto 'site.yml' ja roolit 'roles'.
 * Oma huomio: Ansible tekee vain tarvittavat muutokset, jolloin samaa komentoa uskaltaa ajaa turvallisesti uudelleen ja uudelleen.
 
-##a) Paikallinen asennus
+a) Paikallinen asennus
 * Asensin Debian 13-järjestelmän VirtualBox-koneeseen. Asennuksen yhteydessä loin käyttäjätunnuksen 'tommik' ja annoin pääkäyttäjän oikeudet. Testasin toimivuutta käynnistämällä virtuaalikoneen, siirtyi työpöydälle sutjakasti ja verkkoyhteys toimi myös ongelmitta.
 
 ---
 
-##b) SSH-demoni
+b) SSH-demoni
 * Varmistin, että ssh-demoni toimii virtuaalikoneessa. Ajoin komennon 'ssh localhost', järjestelmä varoitti aluksi isäntäkoneen sormenjäljestä, siihen riitti hyväksyntä tekstillä 'yes'. Annoin tunnukseni salasanan, minkä jälkeen kirjauduin onnistuneesti sisään koneelle. Tarkistin istunnon komennolla 'w', joka näytti kirjautuneet käyttäjät ja yhteydet.
