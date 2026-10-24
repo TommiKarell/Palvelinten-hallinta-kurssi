@@ -1,7 +1,7 @@
 # Raportti: Palvelinten hallinta - Harjoitus 1
 x) Lue ja tiivistä
 * *Tiivistelmä*
-* SSH-avainpari korvaa haavoittuvat salasanat turvallisella kryptografialla
+- SSH-avainpari korvaa haavoittuvat salasanat turvallisella kryptografialla
 * Julkinen avain kopioidaan palvelimelle komennolla 'ssh-copy-id', minkä jälkeen kirjautuminen tapahtuu ilman salasanakyselyä
 * Oma kysymys: Miten avainten hallinta hoidetaan tilanteessa, jossa hallittavia palvelimia on useita? (Ansible tämän ratkaisee)
 
