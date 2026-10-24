@@ -17,5 +17,4 @@
 ---
 
 ##b) SSH-demoni
-Varmistin, että ssh-demoni toimii virtuaalikoneessa.
- 
+* Varmistin, että ssh-demoni toimii virtuaalikoneessa. Ajoin komennon 'ssh localhost', järjestelmä varoitti aluksi isäntäkoneen sormenjäljestä, siihen riitti hyväksyntä tekstillä 'yes'. Annoin tunnukseni salasanan, minkä jälkeen kirjauduin onnistuneesti sisään koneelle. Tarkistin istunnon komennolla 'w', joka näytti kirjautuneet käyttäjät ja yhteydet.
