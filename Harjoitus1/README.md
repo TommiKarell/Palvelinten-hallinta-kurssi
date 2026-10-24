@@ -12,7 +12,7 @@
 * Oma huomio: Ansible tekee vain tarvittavat muutokset, jolloin samaa komentoa uskaltaa ajaa turvallisesti uudelleen ja uudelleen.
 
 ##a) Paikallinen asennus
-Asensin Debian 13-järjestelmän VirtualBox-koneeseen. Asennuksen yhteydessä loin käyttäjätunnuksen 'tommik' ja annoin pääkäyttäjän oikeudet. Testasin toimivuutta käynnistämällä virtuaalikoneen, siirtyi työpöydälle sutjakasti ja verkkoyhteys toimi myös ongelmitta.
+* Asensin Debian 13-järjestelmän VirtualBox-koneeseen. Asennuksen yhteydessä loin käyttäjätunnuksen 'tommik' ja annoin pääkäyttäjän oikeudet. Testasin toimivuutta käynnistämällä virtuaalikoneen, siirtyi työpöydälle sutjakasti ja verkkoyhteys toimi myös ongelmitta.
 
 ---
 
