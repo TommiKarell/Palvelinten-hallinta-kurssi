@@ -33,4 +33,11 @@ c) Pubkey (Salasanaton kirjautuminen avaimella)
 d9 Hei Ansible (ensimmäinen Ansible-ajo)
 * Asensin tarvittavat työkalut antamalla komennot 'sudo apt-get update' ja 'sudo apt-get install ansible micro bash-compilation tree'. Loin projektille oman kansion ja sitten siirryttiin sinne. Loin inventaariotiedoston 'hosts.ini', johon lisäsin kohdekoneeksi 'localhost'. Tein ensimmäisen testin komennolla 'ansible all -a 'uptime' -i hosts.ini'.
 
-* Huomasin
+<img width="1004" height="351" alt="image" src="https://github.com/user-attachments/assets/22da452c-e9d6-4858-8eff-679c412b7823" />
+
+* Huomasin tuloksessa varoituksen Python-tulkkiin. Korjasin ongelman lisäämällä 'hosts.ini'-tiedoston loppuun tulkkimuuttujan '[all:vars]' ja 'ansible_python_interpreter=/usr/bin/python3'. Jotta '-i hosts.ini'-määritystä ei olisi tarvinnut toistaa jokaisella kerralla, loin 'ansible.cfg'-tiedoston ja määritin siihen oletusinventaarion sekä 'display_args_to_stdout=true'-asetuksen.
+
+* Loin myös orkestrointitiedoston 'site.yml'. Ajoin ensimmäisen kerran komennon 'ansible-playbook site.yml', jolloin sain virheilmoituksen siitä, että roolia 'hello' ei löydy. Loin vaaditun kansiorakenteen roolille komennolla 'mkdir -p roles/hello/tasks/'. Sen jälkeen loin ja muokkasin roolin tehtävätiedostoa 'roles/hello/tasks/main.yml', jonne kirjoitin tiedoston kopiointikomennon polkuun '/tmp/hello-ansible'.
+
+* <img width="1004" height="202" alt="image" src="https://github.com/user-attachments/assets/9de8662b-fb84-4745-8060-81835d5c7851" />
+
