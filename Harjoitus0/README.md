@@ -25,6 +25,8 @@ Ja sitten liitin sen palveluntarjoalle ja otin yhteyttä komennolla:
 ````bash
 ssh root@85.9.222.228
 ````
+---
+
 c) Alkutoimet
 - Loin palvelimelle oman käyttäjän ja annoin sille sudo-oikeudet seuraavilla komennoilla:
 ````bash
@@ -42,6 +44,7 @@ sudo reboot
 <img width="643" height="206" alt="image" src="https://github.com/user-attachments/assets/ccb3c14f-3623-4fee-bf0e-8110417b818b" />
 
 <img width="1004" height="886" alt="image" src="https://github.com/user-attachments/assets/2418a438-54fd-434e-a4fe-7d95fcf8fb38" />
+---
 
 d) Webbipalvelin
 - Asensin Apache2-palvelimen ja avasin sille portin 80 komennoilla:
@@ -54,6 +57,7 @@ sudo ufw allow 80/tcp
 echo "Hei maailma! Tommin VPS-palvelin toimii." | sudo tee /var/www/html/index.html
 ````
 <img width="643" height="214" alt="image" src="https://github.com/user-attachments/assets/dabfd262-86b9-4156-be83-420651dccace" />
+---
 
 Lähteet
 - Karvinen, Tero. Kurssimateriaalit ja tehtävänannot: Palvelinten hallinta.
