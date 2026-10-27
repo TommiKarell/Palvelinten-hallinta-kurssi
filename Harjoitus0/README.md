@@ -20,3 +20,4 @@ b) VPS
 - Vuokrasin virtuaalisen palvelimen Helsingin konesalista, käytin palvelua UpCloud Oy. Tarkistin paikallisen koneeni julkisen SSH-avaimen seuraavalla komennolla:
 ````bash
 cat ~/.ssh/id_ed25519.pub
+````
