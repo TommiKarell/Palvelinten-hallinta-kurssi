@@ -44,6 +44,7 @@ sudo reboot
 <img width="643" height="206" alt="image" src="https://github.com/user-attachments/assets/ccb3c14f-3623-4fee-bf0e-8110417b818b" />
 
 <img width="1004" height="886" alt="image" src="https://github.com/user-attachments/assets/2418a438-54fd-434e-a4fe-7d95fcf8fb38" />
+
 ---
 
 d) Webbipalvelin
