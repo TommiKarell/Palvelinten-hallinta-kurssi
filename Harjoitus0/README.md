@@ -56,7 +56,7 @@ echo "Hei maailma! Tommin VPS-palvelin toimii." | sudo tee /var/www/html/index.h
 <img width="643" height="214" alt="image" src="https://github.com/user-attachments/assets/dabfd262-86b9-4156-be83-420651dccace" />
 
 Lähteet
-Karvinen, Tero. Kurssimateriaalit ja tehtävänannot: Palvelinten hallinta.
-Partanen, Aleksi. 2025. Linux-palvelimet: Viides viikko – Nimekäs. Luettavissa: https://partanennn.github.io/linux-servers/practices/fifth-week.html
-AONCODES. Linux-course: h4.md. Luettavissa: https://github.com/AONCODES/linux-course/blob/main/h4.md
-Tekoäly (Google Gemini): Käytetty apuna tekstin jäsentelyssä, muokkailussa ja Markdownin muokkailussa myös 
+- Karvinen, Tero. Kurssimateriaalit ja tehtävänannot: Palvelinten hallinta.
+- Partanen, Aleksi. 2025. Linux-palvelimet: Viides viikko – Nimekäs. Luettavissa: https://partanennn.github.io/linux-servers/practices/fifth-week.html
+- AONCODES. Linux-course: h4.md. Luettavissa: https://github.com/AONCODES/linux-course/blob/main/h4.md
+- Tekoäly (Google Gemini): Käytetty apuna tekstin jäsentelyssä, muokkailussa ja Markdownin muokkailussa myös 
