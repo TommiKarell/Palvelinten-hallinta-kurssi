@@ -25,3 +25,9 @@
 ### Ansiblen sisäänrakennettu dokumentaatio (`ansible-doc`)
 
 #### `ansible-doc copy`
+* **Johdanto:** Kopioi tiedostoja paikalliselta hallintakoneelta kohdekoneille.
+* **Optiot:**
+* `content`: Kirjoittaa suoraan merkkijonon kohdetiedoston sisällöksi (`src`-option sijaan).
+* `dest`: Kohdepolku palvelimella, johon tiedosto kopioidaan.
+* `src`: Kopioitavan lähdetiedoston polku hallintakoneella.
+* `owner`, `group`, `mode`: Määrittävät tiedoston omistajan, ryhmän ja käyttöoikeudet.
