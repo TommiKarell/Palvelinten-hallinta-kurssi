@@ -204,4 +204,90 @@ Kirjautuminen ja `sudo echo` menivät suoraan läpi ilman salasanakyselyä.
 
 <img width="1004" height="259" alt="image" src="https://github.com/user-attachments/assets/4431fb5e-2ccf-4078-8a81-5ede68a5cd6a" />
 
+---
+
+## c) Package
+Lisäsin `site.yaml`-tiedostoon tehtävän, joka asentaa kaksi pakettia (`tree` ja `htop`) `apt`-moduulilla:
+
+```yaml
+    - name: Install two packages
+      ansible.builtin.apt:
+        name:
+          - tree
+          - htop
+        state: present
+        update_cache: true
+```
+
+Ajoin `ansible-playbook site.yaml` ja varmistin asennuksen ajamalla terminaalissa komennon `tree`.
+
+<img width="1004" height="311" alt="image" src="https://github.com/user-attachments/assets/8469effe-1225-4be9-a75d-e5472e97fb00" />
+
+---
+
+## d) File
+
+Loin työkansioon tiedoston `voileipa.txt` ja lisäsin `site.yaml`-playbookkiin tehtävän, joka kopioi sen Anteron kotihakemistoon:
+
+```yaml
+    - name: Copy multiline file to antero home
+      ansible.builtin.copy:
+        src: voileipa.txt
+        dest: /home/antero/voileipa.txt
+        owner: antero
+        group: antero
+        mode: "0640"
+```
+
+Ajoin playbookin ja tarkistin tiedoston oikeudet sekä sisällön, aluksi ilmoitti että Permission denied, sudolla onnistui:
+
+```bash
+sudo ls -la /home/antero/voileipa.txt
+sudo cat /home/antero/voileipa.txt
+```
+
+### Käyttöoikeuksien selitys (`0640` / `-rw-r-----`)
+* **`-` (ensimmäinen merkki):** Ilmaisee, että kyseessä on tavallinen tiedosto.
+* **`6` eli `rw-` (Omistaja / Owner = `antero`):** Tiedoston omistajalla on lukuoikeus (`r` = 4) ja kirjoitusoikeus (`w` = 2), mutta ei suoritusoikeutta (`-` = 0).
+* **`4` eli `r--` (Ryhmä / Group = `antero`):** Ryhmään kuuluvilla käyttäjillä on vain lukuoikeus (`r` = 4), mutta ei oikeutta muokata tai suorittaa tiedostoa.
+* **`0` eli `---` (Muut / Others):** Kaikilta muilta käyttäjiltä on estetty kaikki oikeudet. Kun yritin lukea tiedostoa suoraan `tommik`-käyttäjällä ilman sudoa, järjestelmä esti sen (`Permission denied`), mikä vahvistaa oikeuksien toimivan.
+
+<img width="1004" height="262" alt="image" src="https://github.com/user-attachments/assets/90b733e5-f9e8-455f-8d93-5fcf72a489f5" />
+
+---
+
+## e) Jotain muuta
+
+Tutustuin uuteen moduliin komennolla `ansible-doc cron` ja lisäsin `site-yaml`-playbookiin tehtävän, joka luo `antero`-käyttäjälle päivittäisen ajastetun tehtävän (kirjoittaa aikaleiman lokitiedostoon joka päivä klo 12:00):
+
+```yaml
+    - name: Create a scheduled cron job for antero
+      ansible.builtin.cron:
+        name: "Daily timestamp log"
+        user: antero
+        hour: "12"
+        minute: "0"
+        job: "date >> /home/antero/paivakirja.log"
+        state: present
+```
+
+Ajoin playbookin ja tarkistin Anteron crontab-taulun:
+
+```bash
+sudo crontab -u antero -l
+```
+
+Terminaaliin ilmestyi Ansiblen luoma rivi `0 12 *** date >> /home/antero/paivakirja.log`.
+
+<img width="1004" height="483" alt="image" src="https://github.com/user-attachments/assets/1b9f34a4-82e1-42f3-a3c1-77a3098fd510" />
+
+---
+
+## Lähteet
+* Karvinen, Tero 2026: Palvelinten hallinta-kurssin tehtävänanto harjoitukseen 2.
+* Karvinen, Tero 2026: Sudo without password. Luettavissa: https://terokarvinen.com/passwordless-sudo/.
+* Munroe, Randalla 2006: xkcd 149: Sandwich. Luettavissa: https://xkcd.com/149/.
+* Karvinen, Tero 2026: Passwordless Sudo with Ansible. Luettavissa: https://terokarvinen.com/passwordless-sudo-with-ansible/.
+* Ansible Documentation: `ansible-doc` (copy, apt, file, user, authorized_key, cron).
+* Tekoälyä (Google Gemini) käytetty tukena oppimiseen, vianmääritykseen ja raportin jäsentelyyn.
 
