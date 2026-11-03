@@ -112,6 +112,8 @@ ansible-doc apt
     key: "{{ lookup('file', '/home/charlie/.ssh/id_rsa.pub') }}"
 ```
 
+---
+
 ## a) Sudoless
 Testasin ensin, että salasanaton SSH-yhteys toimii omalla tunnuksellani (`ssh localhost`). Tämän jälkeen määritin `tommik`-käyttäjälleni salasanattoman sudon:
 
@@ -135,6 +137,8 @@ Komento palautti suoraan `root` kysymättä salasanaa.
 
 <img width="971" height="183" alt="image" src="https://github.com/user-attachments/assets/3a14f9c7-c60d-47d2-b3e5-7def91ad9bf6" />
 
+---
+
 ## b) Antero
 
 Loin työkansion `~/h2` sekä perusasetustiedostot `hosts.ini` ja `ansible.cfg`:
@@ -154,7 +158,50 @@ host_key_checking = False
 interpreter_python = auto_silent
 ```
 
+HUOMIO!! `interpreter_python = auto_silent`-rivi lisätty vasta kesken tehtävän, aluksi en muistanut koko hommaa.
 
+Rakensin `site.yaml`-playbookin, joka loi `antero`-käyttäjän, kopioi hänelle julkisen SSH-avaimeni ja määrittää salasanattoman sudon:
 
+```yaml
+---
+- name: Harjoitus 2 - Voileipa
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Create passwordless user antero
+      ansible.builtin.user:
+        name: antero
+        state: present
+        create_home: true
+        shell: /bin/bash
+
+    - name: Set authorized key for antero
+      ansible.posix.authorized_key:
+        user: antero
+        state: present
+        key: "{{ lookup('file', '/home/tommik/.ssh/id_ed25519.pub') }}"
+
+    - name: Allow passwordless sudo for antero
+      ansible.builtin.copy:
+        content: "antero ALL=(ALL) NOPASSWD: ALL\n"
+        dest: /etc/sudoers.d/antero
+        owner: root
+        group: root
+        mode: "0440"
+        validate: "visudo -cf %s"
+```
+
+Ajoin playbookin komennolla `ansible-playbook site.yaml` ja testasin kirjautumisen sekä salasanattoman sudon:
+
+```bash
+ssh antero@localhost
+sudo -k
+sudo echo "See you at TeroKarvinen.com"
+```
+
+Kirjautuminen ja `sudo echo` menivät suoraan läpi ilman salasanakyselyä.
+
+<img width="1004" height="259" alt="image" src="https://github.com/user-attachments/assets/4431fb5e-2ccf-4078-8a81-5ede68a5cd6a" />
 
 
