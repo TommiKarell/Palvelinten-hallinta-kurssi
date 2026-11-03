@@ -111,3 +111,11 @@ ansible-doc apt
     state: present
     key: "{{ lookup('file', '/home/charlie/.ssh/id_rsa.pub') }}"
 ```
+
+## a) Sudoless
+Testasin ensin, että salasanaton SSH-yhteys toimii omalla tunnuksellani (`ssh localhost`). Tämän jälkeen määritin `tommik`-käyttäjälleni salasanattoman sudon:
+
+````
+sudo visudo -f /etc/sudoers.d/tommik
+```
+
