@@ -119,6 +119,41 @@ Testasin ensin, että salasanaton SSH-yhteys toimii omalla tunnuksellani (`ssh l
 sudo visudo -f /etc/sudoers.d/tommik
 ```
 
+Lisäsin tiedostoon rivin:
+```text
+tommik ALL=(ALL) NOPASSWD: ALL
+```
+
+Testasin toimivuuden nollaamalla sudo-välimuistin ja tarkistamalla käyttäjän:
+
+```bash
+sudo -k
+sudo whoami
+```
+
+Komento palautti suoraan `root` kysymättä salasanaa.
+
+<img width="971" height="183" alt="image" src="https://github.com/user-attachments/assets/3a14f9c7-c60d-47d2-b3e5-7def91ad9bf6" />
+
+## b) Antero
+
+Loin työkansion `~/h2` sekä perusasetustiedostot `hosts.ini` ja `ansible.cfg`:
+
+**`hosts.ini`:**
+
+```ini
+localhost
+```
+
+**`ansible.cfg`:**
+
+```ini
+[defaults]
+inventory = hosts.ini
+host_key_checking = False
+interpreter_python = auto_silent
+```
+
 
 
 
