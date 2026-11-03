@@ -58,3 +58,56 @@ ansible-doc apt
     update_cache: yes
 ```
 
+#### `ansible-doc file`
+* **Johdanto:** Asettaa tiedostojen, hakemistojen ja symbolisten linkkien attribuutteja tai luo ja poistaa niitä.
+* **Optiot:**
+  * `path`: Kohdetiedoston tai -hakemiston polku.
+  * `recurse`: Asettaa attribuutit rekursiivisesti kansion sisällölle.
+  * `src`: Linkitettävän lähdetiedoston polku (käytetään kun `state: link`).
+  * `state`: Haluttu tila (esim. `directory`, `touch`, `link`, `absent`).
+  * `owner`, `group`, `mode`: Omistaja, ryhmä ja käyttöoikeudet.
+* **Esimerkki:**
+
+```yaml
+- name: Create a directory if it does not exist
+  ansible.builtin.file:
+    path: /etc/some_directory
+    state: directory
+    mode: '0755'
+```
+
+#### `ansible-doc user`
+* **Johdanto:** Hallinnoi käyttäjätilejä ja niiden ominaisuuksia kohdejärjestelmässä.
+* **Optiot:**
+  * `name`: Käyttäjätunnuksen nimi.
+  * `create_home`: Luo käyttäjälle kotihakemiston (`yes`/`no`).
+  * `comment`: Käyttäjän lisätiedot / koko nimi (GECOS-kenttä).
+  * `groups`: Lista ryhmistä, joihin käyttäjä liitetään.
+  * `shell`: Käyttäjän oletuskomentotulkki (esim. `/bin/bash`).
+  * `state`: Onko käyttäjä olemassa (`present`) vai poistetaanko se (`absent`).
+  * `system`: Määrittää, luodaanko järjestelmätili (`yes`/`no`).
+* **Esimerkki:**
+
+```yaml
+- name: Add the user 'johnd' with a specific uid and a primary group of 'admin'
+  ansible.builtin.user:
+    name: johnd
+    comment: John Doe
+    uid: 1040
+    group: admin
+```
+
+#### `ansible-doc authorized_key`
+* **Johdanto:** Lisää tai poistaa julkisia SSH-avaimia käyttäjän `authorized_keys`-tiedostosta.
+* **Optiot:**
+  * `user`: Käyttäjätunnus, jonka SSH-avaimia hallitaan.
+  * `key`: Julkinen SSH-avain tekstinä tai polkuna tiedostoon (`lookup`-funktiolla).
+* **Esimerkki:**
+
+```yaml
+- name: Set authorized key taken from file
+  ansible.posix.authorized_key:
+    user: charlie
+    state: present
+    key: "{{ lookup('file', '/home/charlie/.ssh/id_rsa.pub') }}"
+```
