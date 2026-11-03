@@ -19,3 +19,9 @@
 * Käsittelee "muna vai kana" -ongelmaa: kun salasanatonta sudoa ei vielä ensimmäisellä ajokerralla ole, Playbook ajetaan lipulla `--ask-become-password` (`-K`).
 * Muistuttaa Teron säännöstä #1: tee asetus ensin käsin ja vie se vasta toimivana automaatioon.
 * **Oma huomio:** Artikkelin luonnoksessa sudoers-tiedoston oikeuksiksi oli laitettu `"0644"`, mutta käytin omassa toteutuksessani tiukempia `"0440"`-oikeuksia sekä `validate: "visudo -cf %s"` -varmistusta.
+
+---
+
+### Ansiblen sisäänrakennettu dokumentaatio (`ansible-doc`)
+
+#### `ansible-doc copy`
