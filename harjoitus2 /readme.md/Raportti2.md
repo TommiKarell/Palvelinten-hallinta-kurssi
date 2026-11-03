@@ -31,3 +31,30 @@
 * `dest`: Kohdepolku palvelimella, johon tiedosto kopioidaan.
 * `src`: Kopioitavan lähdetiedoston polku hallintakoneella.
 * `owner`, `group`, `mode`: Määrittävät tiedoston omistajan, ryhmän ja käyttöoikeudet.
+* **Esimerkki:**
+```yaml
+- name: Copy file with owner and permissions
+  ansible.builtin.copy:
+    src: /srv/myfiles/foo.conf
+    dest: /etc/foo.conf
+    owner: foo
+    group: foo
+    mode: '0644'
+ansible-doc apt
+```
+
+#### `ansible-doc apt`
+* **Johdanto:** Hallinnoi apt-ohjelmistopaketteja Debian- ja Ubuntu-pohjaisissa järjestelmissä.
+* **Optiot:**
+  * `name`: Asennettavan tai poistettavan paketin nimi tai lista paketeista.
+  * `state`: Paketin haluttu tila (esim. `present` = asennettu, `absent` = poistettu).
+  * `update_cache`: Päivittää pakettilistan ennen asennusta (`yes`/`no`), vastaa komentoa `apt update`.
+* **Esimerkki:**
+
+```yaml
+- name: Update repositories cache and install "foo" package
+  ansible.builtin.apt:
+    name: foo
+    update_cache: yes
+```
+
