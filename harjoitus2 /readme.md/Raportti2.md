@@ -115,7 +115,11 @@ ansible-doc apt
 ## a) Sudoless
 Testasin ensin, että salasanaton SSH-yhteys toimii omalla tunnuksellani (`ssh localhost`). Tämän jälkeen määritin `tommik`-käyttäjälleni salasanattoman sudon:
 
-````
+```bash
 sudo visudo -f /etc/sudoers.d/tommik
 ```
+
+
+
+
 
